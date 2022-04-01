@@ -34,6 +34,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   countdown: {
-
+    flex: .5,
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 })
