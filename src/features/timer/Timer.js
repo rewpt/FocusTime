@@ -9,7 +9,9 @@ const {focusSubject} = props
 
   return (
 <View style={styles.container}>
-  <Countdown />
+  <View style={styles.countdown}>
+    <Countdown />
+  </View>
   <View style={{ paddingTop: spacing.xxl}}>
     <Text style={styles.title}>Focusing on:</Text>
     <Text style={styles.task}>{focusSubject}</Text>
@@ -30,5 +32,8 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  countdown: {
+
   }
 })
