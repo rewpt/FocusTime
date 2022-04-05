@@ -19,6 +19,11 @@ export const Timer = (props) => {
   const onProgress = progress => {
     setProgress(progress)
   }
+
+  const onEnd = () => {
+
+  }
+
   const changeTime = min => {
     setMinutes(min);
     setProgress(1);
@@ -28,7 +33,7 @@ export const Timer = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.countdown}>
-        <Countdown minutes={minutes} isPaused={!isStarted} onProgress={onProgress}/>
+        <Countdown onEnd={onEnd} minutes={minutes} isPaused={!isStarted} onProgress={onProgress}/>
       </View>
       <View style={{ paddingTop: spacing.xxl}}>
         <Text style={styles.title}>Focusing on:</Text>
