@@ -13,7 +13,8 @@ const formatTime = time => {
 export const Countdown = ({
   minutes = 1,
   isPaused,
-  onProgress
+  onProgress,
+  onEnd
 }) => {
   const interval = useRef(null);
   const [millis, setMillis] = useState(minutesToMillis(minutes))
@@ -21,6 +22,8 @@ export const Countdown = ({
   const countDown = () => {
     setMillis(time => {
       if(time === 0) {
+        clearInterval(interval.current);
+        onEnd();
         return time;
       }
       const timeLeft = time - 1000;
