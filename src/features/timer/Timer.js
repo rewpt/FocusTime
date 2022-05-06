@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {StyleSheet, Text, View} from "react-native"
+import {StyleSheet, Text, View, Vibration, Platform} from "react-native"
 import { colors } from "../../utils/colors";
 import { spacing, sizes } from "../../utils/sizes";
 import { Countdown } from "../../components/Countdown";
@@ -21,7 +21,18 @@ export const Timer = (props) => {
     setProgress(progress)
   }
 
+  const vibrate = () => {
+    if (Platform.OS === 'ios') {
+        const interval = setInterval(() => {
+          return Vibration.vibrate()
+        }, 1000)
+    } else {
+      Vibration.vibrate('10s') 
+    }
+  }
+
   const onEnd = () => {
+    vibrate();
     setMinutes(DEFAULT_TIME);
     setProgress(1);
     setIsStarted(false);
